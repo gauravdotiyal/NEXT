@@ -1,10 +1,22 @@
 import { notFound } from "next/navigation";
+import { Metadata } from "next"; 
+
+type Props={
+   params:{
+      productId:string,
+      reviewId:string,
+   }
+}
+
+export const generateMetadata=({params}:Props):Metadata=>{
+  return {
+    title:`Product ${params.productId} Review ${params.reviewId}`
+  }
+}
 
 export default function ReviewDetails({
   params,
-}: {
-  params: { productId: string; reviewId: string };
-}) {
+}:  Props) {
   if (parseInt(params.reviewId) > 1000) {
     notFound();
   }  
