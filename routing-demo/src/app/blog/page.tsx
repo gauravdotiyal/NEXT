@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 export default function blog() {
   return <>
      <Link href="/">Home</Link>
-     <h1>My Blog</h1>;
+     <h1>My Blog</h1>
   </>
 }
