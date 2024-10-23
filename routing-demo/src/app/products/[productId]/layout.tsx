@@ -11,7 +11,7 @@ export const metadata = {
     return ( 
         <> 
           {children}
-           <h1>Features </h1>
+           {/* <h1>Features </h1> */}
         </> 
     );
   }
