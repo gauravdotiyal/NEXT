@@ -4,9 +4,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
  
-import { serverSideFunction } from "@/utils/server-utils"
+ 
 
-export default function ClientRoutePage() {
+export default function ImageSlider() {
   const settings = {
     dots: true,
   };
@@ -29,15 +29,3 @@ export default function ClientRoutePage() {
     </div>
   );
 }
-
-
-// export default function ClientRoutePage(){
-//     console.log("Client Route Rendered")
-//     // const result=serverSideFunction();
-//     return (
-//         <>
-//           <h1>Client Route Page</h1>
-//           {/* <p>{result}</p> */}
-//         </>
-//     )
-// }
