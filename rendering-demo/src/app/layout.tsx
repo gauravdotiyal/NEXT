@@ -1,23 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import { createContext } from "react";
-
-type Theme = {
-  colors: {
-    primary: string;
-    secondary: string;
-  };
-};
-
-const defaultTheme: Theme = {
-  colors: {
-    primary: "#007bff",
-    secondary: "#6c757d",
-  },
-};
-
-const ThemeContext = createContext<Theme>(defaultTheme);
+import "./globals.css"; 
+import { ThemeProvider } from "@/components/theme-provider";
+ 
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,13 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeContext.Provider  value={defaultTheme}>
+     <ThemeProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </html>
   );
 }
