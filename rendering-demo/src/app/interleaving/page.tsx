@@ -11,7 +11,6 @@ export default function InterleavingPage() {
          <ServerComponentOne/>
       </ClientComponentOne>
       <ClientComponentTwo/>
-      
     </>
   );
 }
