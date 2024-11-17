@@ -8,6 +8,6 @@ export default async function Layout({ children }: { children: React.ReactNode }
     const product=productResponse.json();
 
     console.log(product);
-
+ 
   return <>{children}</>;
 }
