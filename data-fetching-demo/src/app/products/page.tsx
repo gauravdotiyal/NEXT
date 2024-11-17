@@ -1,5 +1,6 @@
-export const fetchCache="default-cache";
+// export const fetchCache="default-cache";
 // import { cookies } from "next/headers";
+// export const revalidate=10;
 
 type Product = {
   id: number;
@@ -10,8 +11,10 @@ type Product = {
 
 export default async function ProductPage() {
 
-  const detailsResponse=await fetch("http://localhost:3001/products/1");
-  const details=await detailsResponse.json();
+  // const detailsResponse=await fetch("http://localhost:3001/products/1",{
+    // cache:"no-store"
+  // });
+  // const details=await detailsResponse.json();
   
   //This is dynamic function after this func the cache 
   //req not occurs only the function before it cache req occurs
@@ -19,7 +22,9 @@ export default async function ProductPage() {
   // const theme=cookiesStore.get("theme");
 
   const response = await fetch("http://localhost:3001/products",{
-    cache:"no-store",
+    next:{
+      revalidate:10,
+    },
   });
   const products = await response.json();
  
@@ -34,7 +39,7 @@ export default async function ProductPage() {
           <h2 className="text-xl font-semibold">{product.title}</h2>
           <p>{product.description}</p>
           <p className="text-lg font-medium">${product.price}</p>
-          <p>{details.price}</p>
+          {/* <p>{details.price}</p> */}
         </li>
       ))}
     </ul>
